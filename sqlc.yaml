@@ -1,0 +1,20 @@
+version: "2"
+sql:
+  - schema: "query.sql"
+    queries: "query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        out: "db"
+        overrides:
+          - db_type: "colors"
+            nullable: false
+            go_type:
+              import: "github.com/eullerpereira94/sqlc_enum_test/types"
+              type: "Colors"              
+          - db_type: "colors"
+            nullable: true
+            go_type:
+              import: "github.com/eullerpereira94/sqlc_enum_test/types"
+              type: "NullColors"
+              
